@@ -40,11 +40,11 @@ pip install -r requirements.txt
 
 1. **Transcribe a single video**
 ```bash
-python main.py "C:\path\to\video.mp4"
+python main.py "C:\path\to\video_file.mp4"
 ```
 A file will appear next to the video:
 ```bash
-C:\path\to\video.docx
+C:\path\to\video_file_name.docx
 ```
 
 2. **Transcribe a folder of videos**
@@ -68,7 +68,7 @@ You can customize transcription using optional command-line arguments:
 
 **Example:**
 ```bash
-python main.py "C:\path\to\video.mp4" --model small --block 90 --device cuda
+python main.py "C:\path\to\video_file.mp4" --model small --block 90 --device cuda
 ```
 
 ---
@@ -78,5 +78,5 @@ python main.py "C:\path\to\video.mp4" --model small --block 90 --device cuda
 - 🎬 Extracts audio (16kHz, mono) from video using **ffmpeg**  
 - 🧠 **Whisper** transcribes the audio  
 - 📝 Text is grouped into blocks (default 60 seconds, adjustable with `--block`)  
-- 📂 The result is saved as `video.docx`  
+- 📂 The result is saved as `video_file_name.docx`  
 - 🗑️ Temporary `.wav` files are automatically deleted  
