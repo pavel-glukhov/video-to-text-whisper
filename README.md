@@ -61,22 +61,34 @@ and create a `.docx` next to each video.
 
 You can customize transcription using optional command-line arguments:
 
-- `--model` : Whisper model to use (default: `"base"`) 
-            More info: https://github.com/openai/whisper#available-models-and-languages
-- `--block` : Block length in seconds for text grouping (default: `60`)
-- `--device` : Device to use, `"cpu"` or `"cuda"` (default: auto-detect CPU/GPU)
+- `--model` : Whisper model to use (default: `"base"`)  
+  👉 More info: [Available models](https://github.com/openai/whisper#available-models-and-languages)
 
-**Example:**
-```bash
-python main.py "C:\path\to\video_file.mp4" --model small --block 90 --device cuda
-```
+- `--block` : Block length in seconds for text grouping (default: `60`)
+
+- `--device` : Device to use: `"cpu"` or `"cuda"` (default: auto-detect CPU/GPU)
+
+- `--format` : Output format(s). Possible values: `docx`, `txt`, `pdf`  
+  Example: `--format docx txt`
+
+- `--all-formats` : Save results in all formats (`docx`, `txt`, `pdf`)
 
 ---
 
-## ⚙️ How it works
+**Examples:**
 
-- 🎬 Extracts audio (16kHz, mono) from video using **ffmpeg**  
-- 🧠 **Whisper** transcribes the audio  
-- 📝 Text is grouped into blocks (default 60 seconds, adjustable with `--block`)  
-- 📂 The result is saved as `video_file_name.docx`  
-- 🗑️ Temporary `.wav` files are automatically deleted  
+```bash
+# Transcribe video with default settings (save to DOCX)
+python main.py "C:\path\to\video_file.mp4"
+
+# Use small model, 90-second blocks, GPU
+python main.py "C:\path\to\video_file.mp4" --model small --block 90 --device cuda
+
+# Save as TXT
+python main.py "C:\path\to\video_file.mp4" --format txt
+
+# Save as DOCX + PDF
+python main.py "C:\path\to\video_file.mp4" --format docx pdf
+
+# Save in all formats (DOCX, TXT, PDF)
+python main.py "C:\path\to\video_file.mp4" --all-formats
