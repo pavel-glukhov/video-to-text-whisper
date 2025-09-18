@@ -1,7 +1,7 @@
 # 🎙 Whisper Local Transcriber
 
 A script for **local transcription of video to text** using [OpenAI Whisper](https://github.com/openai/whisper).  
-Works on **CPU** and **GPU (CUDA)**. The result is saved as `.docx`.
+Works on **CPU** and **GPU (CUDA)**. The result is saved as `.docx`, `.pdf` or `.txt`.
 
 ---
 #### Recommended Python version: 3.11 or 3.12
